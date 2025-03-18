@@ -11,11 +11,16 @@ class AdminController extends Controller
     {
         return array(
             array('allow',
-            'actions' => array('index', 'view'),
+            'actions' => array('index', 'view', 'changeRole'),
             'users' => array('@'),
             'expression' => 'Yii::app()->user->role === "admin"',
             ),
+            array(
+                'deny',
+                'users' => array('*'),
+            ),
         );
+        
     }
 
     public function actionIndex()

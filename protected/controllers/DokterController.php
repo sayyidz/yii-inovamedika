@@ -12,9 +12,13 @@ class DokterController extends Controller
         
         return array(
             array('allow',
-            'actions' => array('index', 'view'),
+            'actions' => array('index', 'view', 'dokter', 'detail'),
             'users' => array('@'),
             'expression' => 'Yii::app()->user->role === "dokter"',
+        ),
+        array(
+            'deny',
+            'users' => array('*'),
         ),
         );
     }

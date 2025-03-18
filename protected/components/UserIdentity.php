@@ -30,9 +30,6 @@ class UserIdentity extends CUserIdentity
         } else {
             $this->_id = $user->id;
             $this->username = $user->email;
-            
-            $role = Yii::app()->authManager->getAuthAssignments($user->id);
-            $roleName = key($role);
 
             $this->setState('role', $user->role);
             $this->errorCode = self::ERROR_NONE;

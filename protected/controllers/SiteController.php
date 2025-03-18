@@ -32,6 +32,7 @@ class SiteController extends Controller
 		
 		$pegawai = Pegawai::model()->findAll();
         $this->render('index', array('pegawai' => $pegawai));
+		
 	}
 
 	/**
@@ -99,7 +100,7 @@ class SiteController extends Controller
             $user->tanggal_lahir = $model->tanggal_lahir;
 
             if ($user->save()) {
-				Yii::app()->authManager->assign('pasien', $user->id);
+				// Yii::app()->authManager->assign('pasien', $user->id);
                 Yii::app()->user->setFlash('success', 'Registrasi berhasil! Silakan login.');
                 $this->redirect(array('site/login'));
             } else {

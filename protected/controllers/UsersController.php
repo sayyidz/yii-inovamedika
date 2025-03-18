@@ -11,9 +11,13 @@ class UsersController extends Controller
     {
         return array(
             array('allow',
-            'actions' => array('index', 'view'),
+            'actions' => array('index', 'view', 'riwayat', 'hasilTindakan', 'bayar', 'pembayaran'),
             'users' => array('@'),
             'expression' => 'Yii::app()->user->role === "pasien"',
+        ),
+        array(
+            'deny',
+            'users' => array('*'), // '*' berarti semua pengguna (termasuk yang belum login) akan ditolak
         ),
         );
     }
